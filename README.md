@@ -59,14 +59,29 @@ git stash
 
 ## セットアップ
 
-### 1. リポジトリのクローン
+### 1. インストール
+```bash
+brew install jj
+```
+
+### 2. Gitと同様にユーザ名とメールアドレスを設定
+
+```bash
+jj config set --user user.name "$(git config --global --list | grep -E '^user\.name=' | cut -d= -f2)"
+
+jj config set --user user.email "$(git config --global --list | grep -E '^user\.email=' | cut -d= -f2)"
+
+jj config list | grep -E "^user\.(name|email) ="
+```
+
+### 3. リポジトリのクローン
 
 ```bash
 git clone git@github.com:htnk128/jj-sandbox.git
 cd jj-sandbox
 ```
 
-### 2. jj の初期化（Git との共存モード）
+### 4. jj の初期化（Git との共存モード）
 
 ```bash
 jj git init --colocate
