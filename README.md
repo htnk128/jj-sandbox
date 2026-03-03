@@ -68,9 +68,7 @@ brew install jj
 
 ```bash
 jj config set --user user.name "$(git config --global --list | grep -E '^user\.name=' | cut -d= -f2)"
-
 jj config set --user user.email "$(git config --global --list | grep -E '^user\.email=' | cut -d= -f2)"
-
 jj config list | grep -E "^user\.(name|email) ="
 ```
 
